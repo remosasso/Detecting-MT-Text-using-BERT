@@ -14,4 +14,11 @@ In order to train a BERT model the following steps need to be taken:
 merge chunks and add corresponding labels.
   - 5. Now a dataset is obtained which should be split into a training and testing set as desired and the eventual files should be .tsv files.
   
- - 4. 
+ - 4. Now having TensorFlow installed you can train the bert model by using the following command:       
+ ``` python run_classifier.py --task_name=cola --do_train=true --data_dir=./data/ --vocab_file=./model/vocab.txt --bert_config_file=./model/bert_config.json --init_checkpoint=./model/model.ckpt --max_seq_length=256 --train_batch_size=8 --learning_rate=2e-5 --num_train_epochs=1.0 --output_dir=./output/ --do_lower_case=False --convert_data=True --save_checkpoints_steps=10000 --training_steps=1000000 --max_models_save=5000 --converted_data_folder=None```
+      
+      Note that the input data first needs to be converted to features, which can be controlled by the "convert_data" parameter. Once the data is converted once, you don't need to convert it again. "save_checkpoints_steps" denotes after how many steps a checkpoint will be saved, "training_steps" denotes the total number of steps you want to model to train (usually equal to the size of your dataset), "max_models_save" denotes after how many saved models it will start overwriting previous models to save storage space, and finally if you have already converted the data you can specify its location with "converted_data_folder". These parameters were added by us, all other parameters belong to the original BERT code and speak for themselves.
+
+- 5. At this point the pre-trained BERT model you chose will start training after it converted the data. That is, the model is finetuned using an additional layer of 2 neurons as an output layer.
+
+- 6. Once 
