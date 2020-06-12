@@ -1,0 +1,7 @@
+TensorFlow
+pandas
+scikit-learn
+matplotlib
+re
+glob
+nltk
