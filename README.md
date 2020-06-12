@@ -1,4 +1,4 @@
-# Detecting-Machine-Translated-Text-using-BERT
+# Detecting Machine Translated Text using BERT
 A BERT-based approach to the binary classification task of human vs. machine translated subtitles.
 
 In order to train a BERT model the following steps need to be taken:
