@@ -14,9 +14,11 @@ flags.DEFINE_string(
     "data_dir", "./data/",
     "The input data dir. Should contain the .tsv files (or other data files) "
     "for the task.")
+flags.DEFINE_string(
+    "model_dir", "./model/",
+    "The model directory.")
 
-
-os.system('python run_classifier.py --task_name=cola --do_predict=true --data_dir=./data/ --vocab_file=./model/vocab.txt --bert_config_file=./model/bert_config.json --init_checkpoint=./output/model.ckpt --max_seq_length=256 --output_dir=./output/ --convert_data=True')
+os.system('python run_classifier.py --task_name=cola --do_predict=true --data_dir='+FLAGS.data_dir+' --vocab_file='+FLAGS.model_dir+'vocab.txt --bert_config_file='+FLAGS.model_dir+'bert_config.json --init_checkpoint='+FLAGS.output_dir+'model.ckpt --max_seq_length=256 --output_dir='+FLAGS.output_dir+' --convert_data=True')
 
 df_result = pd.read_csv(FLAGS.output_dir + 'test_results.tsv', sep='\t', header=None, engine='python',quoting=csv.QUOTE_NONE)
 test = pd.read_csv(FLAGS.data_dir + 'test.tsv', sep='\t', usecols=[1], header=0, engine='python',quoting=csv.QUOTE_NONE)
