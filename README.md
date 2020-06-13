@@ -2,7 +2,9 @@
 A BERT-based approach to the binary classification task of human vs. machine translated subtitles.
 
 In order to train a BERT model the following steps need to be taken:
-- 1. Download a BERT model that you want to use from https://github.com/google-research/bert and extract it into the /bert-code/model/ folder. Currently there is a BERT-tiny model present in that directory: remove it or create a new model directory to use another model.
+- 1. Download a BERT model that you want to use from the original BERT repository (https://github.com/google-research/bert) and extract it into the /bert-code/model/ folder. Currently there is a BERT-tiny model present in that directory: remove it or create a new model directory to use another model.
+
+Note that most of the code in the /bert-code/ folder have been taken from the original BERT repository, we have made some minor adjustments to easen up the process as explained below.
 
 - 2. Download one of the datasets (or move to the next step if you wish to create your own dataset) from the following drive: https://drive.google.com/drive/folders/1FOczjt165RcDc74vIpOq9QiwbgJSkAyQ, then place the train and test files into the /bert-code/data/ folder.
 
